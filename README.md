@@ -1,10 +1,12 @@
+Disclamer: these are my own notes as I embark on installing BlueOS on Ubuntu server 20.04 on a Raspberry Pi 3b in order to effortlessly be able to add Ros services in standalone containers and it may just work on the raspbianOS bundled with the BlueOS image. Just testing
+
 ### SD-Card preparing
 Insert your SD-card in your laptop/SD-Card reader.
 Install Raspberry pi's image burner:
 ```
 sudo snap install rpi-imager
 ```
-run it and choose "Other general purpose  OS"
+run it and choose "Other general purpose  OS" For now it seems we should run a 32-bit version.
 [Follow this guide incl. advanced](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#2-prepare-the-sd-card)
 
 
@@ -37,3 +39,13 @@ else: ask ChatGPT to help you.
 ### Docker Setup
 We need to install some Docker tools (I guess)
 [Install Docker:](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+
+Before we can run the installation file from Blue Robotics we need to fix some issues.
+First run this line to create a sylink to where BlueOS expects this file to be:
+```
+sudo ln -s /boot/firmware/cmdline.txt /boot/
+```
+Then we need to add some missing apps:
+```
+sudo apt install rfkill dhcpcd5 -y
+```
