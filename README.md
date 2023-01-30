@@ -37,8 +37,9 @@ sudo netplan apply && sudo reboot
 else: ask ChatGPT to help you. 
 
 ### Docker Setup
-We need to install some Docker tools (I guess)
+We need to install some of the tools here:
 [Install Docker:](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+Make sure you completed these [Linux post installation steps ](https://docs.docker.com/engine/install/linux-postinstall/)
 
 Before we can run the installation file from Blue Robotics we need to fix some issues.
 First run this line to create a sylink to where BlueOS expects this file to be:
