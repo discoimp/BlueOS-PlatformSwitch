@@ -43,7 +43,7 @@ We need to install some Docker tools (I guess)
 Before we can run the installation file from Blue Robotics we need to fix some issues.
 First run this line to create a sylink to where BlueOS expects this file to be:
 ```
-sudo ln -s /boot/firmware/cmdline.txt /boot/
+sudo ln -s /boot/firmware/cmdline.txt /boot/ && sudo ln -s /boot/firmware/config.txt /boot/
 ```
 Then we need to add some missing apps:
 ```
