@@ -55,3 +55,5 @@ Finally run the install script for [BlueOS](https://github.com/bluerobotics/Blue
 ```
 sudo su -c 'curl -fsSL https://raw.githubusercontent.com/bluerobotics/blueos-docker/master/install/install.sh | bash'
 ```
+Well, that didn't work
+I have to manually create the service that starts the docker This: [rc.local](https://marsown.com/wordpress/how-to-enable-etc-rc-local-with-systemd-on-ubuntu-20-04/)
