@@ -41,12 +41,17 @@ We need to install some of the tools here:
 [Install Docker:](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 Make sure you completed these [Linux post installation steps ](https://docs.docker.com/engine/install/linux-postinstall/)
 
+### BlueOS install
 Before we can run the installation file from Blue Robotics we need to fix some issues.
-First run this line to create a sylink to where BlueOS expects this file to be:
+First run this line to create a symlink to where BlueOS expects these files to be:
 ```
 sudo ln -s /boot/firmware/cmdline.txt /boot/ && sudo ln -s /boot/firmware/config.txt /boot/
 ```
 Then we need to add some missing apps:
 ```
 sudo apt install rfkill dhcpcd5 -y
+```
+Finally run the install script for [BlueOS](https://github.com/bluerobotics/BlueOS-docker/tree/master/install)
+```
+sudo su -c 'curl -fsSL https://raw.githubusercontent.com/bluerobotics/blueos-docker/master/install/install.sh | bash'
 ```
