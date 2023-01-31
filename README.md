@@ -1,4 +1,4 @@
-Disclamer: these are my own notes as I embark on installing BlueOS on Ubuntu server 20.04 on a Raspberry Pi 3b in order to effortlessly be able to add Ros services in standalone containers and it may just work on the raspbianOS bundled with the BlueOS image. Just testing
+Disclamer: these are my own notes as I embark on installing BlueOS on Debian 10 Buster on a Raspberry Pi 3b in order to effortlessly be able to add Ros services in standalone containers.
 
 ### SD-Card preparing
 Insert your SD-card in your laptop/SD-Card reader.
@@ -6,9 +6,7 @@ Install Raspberry pi's image burner:
 ```
 sudo snap install rpi-imager
 ```
-run it and choose "Other general purpose  OS" For now it seems we should run a 32-bit version.
-[Follow this guide incl. advanced](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#2-prepare-the-sd-card)
-[EDIT] I got the BlueOS docker running after several low level adjustments. The wifi management module in BlueOS will not cooperate. Thinking: What else isn't working? - Trying Rasbian Buster, the Debian 10 that works with ROS. Maybe that a better choice.
+run it and choose Raspberry Pi OS (other) and select Raspberry Pi OS Lite (Legacy) (Buster)
 
 ### headless connect
 If you are installing it headless, and without access to the dhcp service, boot the rasbian and on a computer on the same network run:
@@ -32,32 +30,12 @@ apt-listchanges: Can't set locale; make sure $LC_* and $LANG are correct!
 ```
 ...while using SSH, just disregard. If I understand correctly you are passing your own locale settings when using SSH, but I don't think this will be a problem for what we are doing.
 
-### connect with monitor and keyboard
-If the raspberry doesn't connect to your wifi (and you have it hooked up to a monitor+keyboard.) try this after doublechecking wifi credentials:
-```
-sudo nano /etc/netplan/50-cloud-init.yaml
-```
-In here the number of spaces are holy, so don't use tab or add random spaces. Make sure the wifi name and password has quotes "" around them.
 
-It should look like this:
+Now update, reboot and reconnect your pi with the above ssh command
 ```
-wifis:
-  wlan0:
-    dhcp4: true
-    optional: true
-    access-points:
-      "NAME OF YOUR NETWORK":
-        password: "YOUR PASSWORD FOR EVERYONE TO SEE"
+sudo apt update && sudo apt upgrade -y
+sudo reboot
 ```
-
-press
-ctrl s
-ctrl x
-then run: 
-```
-sudo netplan apply && sudo reboot
-```
-else: ask ChatGPT to help you. 
 
 ### Docker Setup
 We need to install some of the tools here:
