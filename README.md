@@ -44,6 +44,16 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
+Give the Docker user all skills (not secure), and apply the new policy
+```
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+To test if Docker is set up correctly run this and if you see Hello from Docker!, all is good:
+```
+docker run hello-world
+```
 ### BlueOS install
 Before we can run the installation file from Blue Robotics we need to fix some issues.
 First run this line to create a symlink to where BlueOS expects these files to be:
