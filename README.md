@@ -8,7 +8,7 @@ sudo snap install rpi-imager
 ```
 run it and choose "Other general purpose  OS" For now it seems we should run a 32-bit version.
 [Follow this guide incl. advanced](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#2-prepare-the-sd-card)
-
+[EDIT] I got the BlueOS docker running after several low level adjustments. The wifi management module in BlueOS will not cooperate. Thinking: What else isn't working? - Trying Rasbian Buster, the Debian 10 that works with ROS. Maybe that a better choice.
 
 If the raspberry doesn't connect to your wifi (and you have it hooked up to a monitor+keyboard.) try this after doublechecking wifi credentials:
 ```
