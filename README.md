@@ -10,6 +10,29 @@ run it and choose "Other general purpose  OS" For now it seems we should run a 3
 [Follow this guide incl. advanced](https://ubuntu.com/tutorials/how-to-install-ubuntu-on-your-raspberry-pi#2-prepare-the-sd-card)
 [EDIT] I got the BlueOS docker running after several low level adjustments. The wifi management module in BlueOS will not cooperate. Thinking: What else isn't working? - Trying Rasbian Buster, the Debian 10 that works with ROS. Maybe that a better choice.
 
+### headless connect
+If you are installing it headless, and without access to the dhcp service, boot the rasbian and on a computer on the same network run:
+```
+sudo apt install nmap
+hostname -I
+```
+Now copy the first three numbers of the ip address and replace the # in this:
+```
+nmap #.#.#.1/24
+```
+This will knock on all the doors in your subnet. Your raspberry should be the one with 22/tcp open ssh and 999 closed ports.
+```
+ssh THE-USERNAME-YOU-CHOSE-WHEN-YOU-MADE-THE-IMAGE@THE.IPADDRESS.YOU.JUST.FOUND
+```
+type: yes and you should be good.
+
+btw: If you get warnings like...
+```
+apt-listchanges: Can't set locale; make sure $LC_* and $LANG are correct!
+```
+...while using SSH, just disregard. If I understand correctly you are passing your own locale settings when using SSH, but I don't think this will be a problem for what we are doing.
+
+### connect with monitor and keyboard
 If the raspberry doesn't connect to your wifi (and you have it hooked up to a monitor+keyboard.) try this after doublechecking wifi credentials:
 ```
 sudo nano /etc/netplan/50-cloud-init.yaml
