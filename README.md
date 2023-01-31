@@ -77,3 +77,8 @@ To send it back to a memory card (not tested yet, but internet says it will work
 ```
 sudo cat /home/USERNAME/backup.img.gz | gunzip | dd of=/dev/DISKNAME status=progress
 ```
+### Add the DVL-50 docker to BlueOS
+Simply enter pirate mode, write red-pill and paste this:
+```
+sudo docker run -d --net=host -v /root/.config/blueos:/root/.config --name=BlueOS-Water-Linked-DVL --restart=unless-stopped bluerobotics/blueos-water-linked-dvl:latest
+```
