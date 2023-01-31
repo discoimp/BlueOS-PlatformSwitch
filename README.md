@@ -66,14 +66,14 @@ The Pi should automatically restart and you can access it as BlueOS at 192.168.2
 This would be a good time to backup your working SD-Card.
 Insert your card in your machine and locate the name of it:
 ```
-dd if=/sudo fdisk -l
+sudo fdisk -l
 ```
 Replace DISKNAME with the relevant name and provide a valid path to where to save the file.
 ```
-dd if=/dev/DISKNAME | gzip > /home/USERNAME/backup.img.gz
+sudo dd if=/dev/DISKNAME | gzip > /home/USERNAME/backup.img.gz
 ```
 (If we only run the dd command your image will be the size of your card, unconvenient. The gzip will compress it)
 To send it back to a memory card (not tested yet, but internet says it will work):
 ```
-cat /home/USERNAME/backup.img.gz | gunzip | dd of=/dev/DISKNAME status=progress
+sudo cat /home/USERNAME/backup.img.gz | gunzip | dd of=/dev/DISKNAME status=progress
 ```
