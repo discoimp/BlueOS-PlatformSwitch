@@ -73,9 +73,11 @@ Replace DISKNAME with the relevant name and provide a valid path to where to sav
 sudo dd if=/dev/DISKNAME | gzip > /home/USERNAME/backup.img.gz
 ```
 (If we only run the dd command your image will be the size of your card, unconvenient. The gzip will compress it)
-To send it back to a memory card (not tested yet, but internet says it will work):
+To send it back to a memory card:
 ```
-sudo cat /home/USERNAME/backup.img.gz | gunzip | dd of=/dev/DISKNAME status=progress
+sudo su
+cat /home/USERNAME/backup.img.gz | gunzip | dd of=/dev/DISKNAME status=progress
+exit
 ```
 ### Add the DVL-50 docker to BlueOS
 Simply enter pirate mode, write red-pill and paste this:
