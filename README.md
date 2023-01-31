@@ -38,9 +38,11 @@ sudo reboot
 ```
 
 ### Docker Setup
-We need to install some of the tools here:
-[Install Docker:](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
-Make sure you completed these [Linux post installation steps ](https://docs.docker.com/engine/install/linux-postinstall/)
+Follow instructions at [docs.docker.com](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script), or just run:
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
 
 ### BlueOS install
 Before we can run the installation file from Blue Robotics we need to fix some issues.
