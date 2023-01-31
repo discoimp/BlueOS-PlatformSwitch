@@ -55,18 +55,8 @@ To test if Docker is set up correctly run this and if you see Hello from Docker!
 docker run hello-world
 ```
 ### BlueOS install
-Before we can run the installation file from Blue Robotics we need to fix some issues.
-First run this line to create a symlink to where BlueOS expects these files to be:
-```
-sudo ln -s /boot/firmware/cmdline.txt /boot/ && sudo ln -s /boot/firmware/config.txt /boot/
-```
-Then we need to add some missing apps:
-```
-sudo apt install rfkill dhcpcd5 -y
-```
-Finally run the install script for [BlueOS](https://github.com/bluerobotics/BlueOS-docker/tree/master/install)
+
+Now we can run the install script for [BlueOS](https://github.com/bluerobotics/BlueOS-docker/tree/master/install)
 ```
 sudo su -c 'curl -fsSL https://raw.githubusercontent.com/bluerobotics/blueos-docker/master/install/install.sh | bash'
 ```
-Well, that didn't work
-I have to manually create the service that starts the docker This: [rc.local](https://marsown.com/wordpress/how-to-enable-etc-rc-local-with-systemd-on-ubuntu-20-04/)
