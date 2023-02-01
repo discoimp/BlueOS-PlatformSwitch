@@ -30,30 +30,6 @@ apt-listchanges: Can't set locale; make sure $LC_* and $LANG are correct!
 ```
 ...while using SSH, just disregard. If I understand correctly you are passing your own locale settings when using SSH, but I don't think this will be a problem for what we are doing.
 
-
-Now update, reboot and reconnect your pi with the above ssh command
-```
-sudo apt update && sudo apt upgrade -y
-sudo reboot
-```
-
-### Docker Setup
-Follow instructions at [docs.docker.com](https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script), or just run:
-```
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-```
-
-Give the Docker user all skills (not secure), and apply the new policy
-```
-sudo usermod -aG docker $USER
-newgrp docker
-```
-
-To test if Docker is set up correctly run this and if you see Hello from Docker!, all is good:
-```
-docker run hello-world
-```
 ### BlueOS install
 
 Now we can run the install script for [BlueOS](https://github.com/bluerobotics/BlueOS-docker/tree/master/install)
